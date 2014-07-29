@@ -1,0 +1,17 @@
+﻿@using Ploeh.Samples.Mary.ECommerce.Data.Sql
+
+<asp:Content ID="indexTitle" ContentPlaceHolderID="TitleContent" runat="server">
+    Home Page
+</asp:Content>
+
+<asp:Content ID="indexContent" ContentPlaceHolderID="MainContent" runat="server">
+    <h2>Featured Products</h2>
+    <div>
+        @foreach (var prod in (IEnumerable<Product>) ViewData["products"]){
+            @prod.Name
+            <br />
+            @String.Format("{0:C}", @prod.UnitPrice)
+            <br/><br/>
+        }
+    </div>
+</asp:Content>
